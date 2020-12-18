@@ -21,14 +21,7 @@ public class Positions extends PositionsAbstrait {
 
   @Override
 	public int frequence(Position position) {
-    int nbMatch = 0;
-
-    for (Position p : this.positions) {
-      if (p.x == position.x && p.y == position.y) {
-        ++nbMatch;
-      }
-    }
-    return nbMatch;
+    return Collections.frequency(this.positions, position);
   }
 
   @Override

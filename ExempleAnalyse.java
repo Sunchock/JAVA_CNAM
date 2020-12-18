@@ -60,7 +60,7 @@ public class ExempleAnalyse {
 	}
 
 	public static void main(String[] args) throws java.io.FileNotFoundException {
-		//exemple1();
+		exemple1();
 		//exemple2("Somme 0 1 Positions 0 0");
 
 		String calculs = "Positions 0 1 Max 0 1 Somme 0 1 SommeParPosition 0";
@@ -75,7 +75,7 @@ public class ExempleAnalyse {
 				+ " " + calculs + " 0";
 
 		//exemple2(calculs + " 0");
-		exemple2(traitement1);
+		//exemple2(traitement1);
 	}
 
 }

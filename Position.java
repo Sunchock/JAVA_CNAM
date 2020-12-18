@@ -12,4 +12,11 @@ public class Position {
 	@Override public String toString() {
 		return super.toString() + "(" + x + "," + y + ")";
 	}
+ 
+	@Override
+	public boolean equals(Object obj) {
+		if (obj instanceof Position)
+			return (this.x == ((Position) obj).x && this.y == ((Position) obj).y);
+		return super.equals(obj);
+	}
 }
