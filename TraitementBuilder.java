@@ -25,13 +25,15 @@ public class TraitementBuilder {
 	 * Ici, on peut se limiter aux types utlisés dans le projet : int, double et String.
 	 */
 	static Object decoderEffectif(Class<?> formel, Scanner in) {
-		if (formel == int.class) {
+		if (in.hasNextInt() && formel == int.class) {
 			return in.nextInt();
-		} else if (formel == double.class) {
+		} else if (in.hasNextDouble() && formel == double.class) {
 			return in.nextDouble();
 		} else if (formel == String.class) {
 			return in.next();
 		}
+		// Type non identifié -> erreur
+		System.out.println(in.next());
 		return null;
 	}
 

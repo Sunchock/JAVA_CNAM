@@ -5,7 +5,11 @@
   * @author	Xavier Crégut <Prenom.Nom@enseeiht.fr>
   */
 public class Normaliseur extends Traitement {
+  double x;
+  double y;
 
-	// TODO à faire...
-
+  public Normaliseur(double x, double y) {
+    this.x = x;
+    this.y = y;
+  }
 }

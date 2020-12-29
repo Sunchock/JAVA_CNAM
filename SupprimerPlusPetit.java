@@ -4,7 +4,12 @@
   * @author	Xavier Crégut <Prenom.Nom@enseeiht.fr>
   */
 public class SupprimerPlusPetit extends Traitement {
+  Class<?>  type;
+  Object    value;
 
-	// TODO à faire...
+	public SupprimerPlusPetit(double val) {
+    this.type = double.class;
+    this.value = val;
+  }
 
 }
