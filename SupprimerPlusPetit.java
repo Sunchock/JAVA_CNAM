@@ -1,15 +1,19 @@
+import java.util.Locale;
+
 /**
   * SupprimerPlusPetit supprime les valeurs plus petites qu'un seuil.
   *
   * @author	Xavier Crégut <Prenom.Nom@enseeiht.fr>
   */
 public class SupprimerPlusPetit extends Traitement {
-  Class<?>  type;
-  Object    value;
+  double value;
 
 	public SupprimerPlusPetit(double val) {
-    this.type = double.class;
     this.value = val;
   }
 
+  @Override
+	protected String toStringComplement() {
+    return String.format(Locale.US, "< %.1f", value);
+	}
 }

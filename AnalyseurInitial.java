@@ -25,7 +25,8 @@ public class AnalyseurInitial {
 		}
 	}
 
-	public static void main(String[] args) {
+	// Exemple
+	public static void mainn(String[] args) {
 		new AnalyseurInitial().traiter();
 	}
 

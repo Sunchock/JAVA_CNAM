@@ -1,3 +1,5 @@
+
+
 /**
  * GenerateurXML écrit dans un fichier, à charque fin de lot, toutes
  * les données lues en indiquant le lot dans le fichier XML.
@@ -9,5 +11,10 @@ public class GenerateurXML extends Traitement {
 
 	public GenerateurXML(String arg) {
 		this.filename = arg;
+	}
+
+	@Override
+	protected String toStringComplement() {
+		return String.format("\"%s\"", this.filename);
 	}
 }

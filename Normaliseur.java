@@ -1,3 +1,4 @@
+import java.util.Locale;
 
 /**
   * Normaliseur normalise les données d'un lot en utilisant une transformation affine.
@@ -12,4 +13,9 @@ public class Normaliseur extends Traitement {
     this.x = x;
     this.y = y;
   }
+  
+  @Override
+	protected String toStringComplement() {
+    return String.format(Locale.US, "début=%.1f, fin=%.1f", this.x, this.y);
+	}
 }
