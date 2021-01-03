@@ -8,20 +8,16 @@ public class Max extends Traitement {
   double max_value = 0;
 
 	@Override
-	public void gererFinLotLocal(String nomLot) {
+	public final void gererFinLotLocal(String nomLot) {
 		super.gererFinLotLocal(nomLot);
-		System.out.println(nomLot + ": max = " + this.max());
+		System.out.println(nomLot + ": max = " + this.max_value);
 	}
 
 	@Override
-	public void traiter(Position position, double valeur) {
+	public final void traiter(Position position, double valeur) {
     if (valeur > this.max_value) {
       this.max_value = valeur;
     }
 		super.traiter(position, valeur);
 	}
-
-  public double max() {
-    return this.max_value;
-  }
 }

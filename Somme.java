@@ -8,19 +8,19 @@ public class Somme extends SommeAbstrait {
 	double result = 0;
 
 	@Override
-	public void gererFinLotLocal(String nomLot) {
+	public final void gererFinLotLocal(String nomLot) {
 		super.gererFinLotLocal(nomLot);
 		System.out.println(nomLot + ": somme = " + this.somme());
 	}
 
 	@Override
-	public void traiter(Position position, double valeur) {
+	public final void traiter(Position position, double valeur) {
 		this.result += valeur;
 		super.traiter(position, valeur);
 	}
 
 	@Override
-	public double somme() {
+	public final double somme() {
 		return this.result;
 	}
 }
