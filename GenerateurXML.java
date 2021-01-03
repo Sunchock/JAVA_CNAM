@@ -1,5 +1,3 @@
-
-
 /**
  * GenerateurXML écrit dans un fichier, à charque fin de lot, toutes
  * les données lues en indiquant le lot dans le fichier XML.

@@ -42,7 +42,7 @@ public class TraitementBuilderTest {
 	/** Tester decoderEffectif. */
 	@Test
 	public void testerDecoderEffectif() throws Exception {
-		Scanner s = new Scanner("13 12.5 texte fin");
+		Scanner s = new Scanner("13 12.5 texte fin").useLocale(Locale.US);
 		assertEquals(13, TraitementBuilder.decoderEffectif(int.class, s));
 		assertTrue("decoderEffectif ne doit lire qu'un mot.", s.hasNext("12.5"));
 		assertEquals(12.5, TraitementBuilder.decoderEffectif(double.class, s));

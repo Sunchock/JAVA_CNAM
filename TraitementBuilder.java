@@ -14,8 +14,9 @@ public class TraitementBuilder {
 	 *   - Normaliseur donne Normaliseur.class
 	 */
 	Class<?> analyserType(String nomType) throws ClassNotFoundException {
-		System.out.println("analyseType(" + nomType + ")");
-		if (nomType.equals("double"))
+		if (nomType.equals("int"))
+			return int.class;
+		else if (nomType.equals("double"))
 			return double.class;
 		return Class.forName(nomType);
 	}
@@ -25,6 +26,10 @@ public class TraitementBuilder {
 	 * Ici, on peut se limiter aux types utlisés dans le projet : int, double et String.
 	 */
 	static Object decoderEffectif(Class<?> formel, Scanner in) {
+		// On utilise la locale US pour que les nombres décimaux utilisent des points et non des virgules
+		if (in.locale() != Locale.US) {
+			in.useLocale(Locale.US);
+		}
 		if (in.hasNextInt() && formel == int.class) {
 			return in.nextInt();
 		} else if (in.hasNextDouble() && formel == double.class) {
