@@ -6,7 +6,12 @@
 public class Multiplicateur extends Traitement {
   double facteur;
 
-  public Multiplicateur(double value) {
-    this.facteur = value;
+  public Multiplicateur(double valeur) {
+    this.facteur = valeur;
   }
+
+  @Override
+	public void traiter(Position position, double valeur) {
+		super.traiter(position, this.facteur * valeur);
+	}
 }
