@@ -22,7 +22,6 @@ public class FabriqueTraitementConcrete implements FabriqueTraitement {
 		return new Multiplicateur(facteur);
 	}
 
-	/*
 	@Override public SommeParPosition sommeParPosition() {
 		return new SommeParPosition();
 	}
@@ -50,7 +49,4 @@ public class FabriqueTraitementConcrete implements FabriqueTraitement {
 	@Override public Maj maj() {
 		return new Maj();
 	}
-
-	*/
-
 }
