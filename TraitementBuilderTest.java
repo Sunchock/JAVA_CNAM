@@ -86,7 +86,6 @@ public class TraitementBuilderTest {
 		TraitementBuilder.Signature s = builder.analyserSignature(in);
 		verifierFormels(s, double.class, String.class, int.class);
 		verifierEffectifs(s, 0.0, "xyz", -5);
-			// XXX comparaison de double, mais construits de la même manière donc ok
 		assertTrue("Trop de mots lus sur le scanner", in.hasNext("suite"));
 	}
 
