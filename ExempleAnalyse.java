@@ -75,7 +75,7 @@ public class ExempleAnalyse {
 				+ " " + calculs + " 0";
 
 		exemple2(calculs + " 0");
-		exemple2(traitement1);
+		//exemple2(traitement1);
 	}
 
 }

@@ -5,7 +5,23 @@
   */
 
 public class Max extends Traitement {
+  double max_value = 0;
 
-	// TODO à faire...
+	@Override
+	public void gererFinLotLocal(String nomLot) {
+		super.gererFinLotLocal(nomLot);
+		System.out.println(nomLot + ": max = " + this.max());
+	}
 
+	@Override
+	public void traiter(Position position, double valeur) {
+    if (valeur > this.max_value) {
+      this.max_value = valeur;
+    }
+		super.traiter(position, valeur);
+	}
+
+  public double max() {
+    return this.max_value;
+  }
 }
