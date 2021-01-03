@@ -1,4 +1,4 @@
-% NOM Prénom (numéro) : ... (...)
+% NOM Prénom (numéro) : MARESTIN Théodore (14)
 
 
 **Remarque :** Ce fichier est au format Markdown.  À partir de lui, on peut
@@ -13,7 +13,8 @@ pandoc --toc -s -o questionnaire.html questionnaire.txt
 
 # Points non traités du sujet
 
-...
+* Les sources
+* Swing
 
 
 # Traitements
@@ -21,27 +22,36 @@ pandoc --toc -s -o questionnaire.html questionnaire.txt
 
 ## Quelle est la classe du traitement choisi ?
 
-...
+Non réalisé
 
 
 ## Pourquoi avoir fait de traitement une classe abstraite et non une interface ?
 
-...
+On a fait Traitement une classe abstraite car cela permet de définir un comportement par défaut pour
+les autres classes qui vont hériter d'elle. Contrairement à une interface qui ne peut pas avoir
+d'implémentation sans utiliser une autre classe Java qui l'implémente.
 
 
 ## Pourquoi certaines méthodes sont déclarées `final` ?
 
-...
+Les méthodes déclarées finales ne peuvent pas être modifiées par la suite du programme.
+Cela est surtout utile dans un soucis de conception et/ou d'optimisation afin que les
+classes dérivées ne puissent pas modifier le comportement de cette méthode.
 
 
 ## La classe Traitement est abstraite alors qu'elle ne contient pas de méthodes abstraites. Pourquoi ?
 
-...
+La classe Traitement est abstraite pour qu'on ne puisse pas l'instancier en tant que telle. Cependant elle peut
+avoir des classes dérivées qui vont hériter de ces méthodes comme un comportement par défaut.
 
 
-## Est-ce que de faire de Traitemetn une classe abstraite est vraiment logique ici ?
+## Est-ce que de faire de Traitement une classe abstraite est vraiment logique ici ?
 
-...
+Oui car Traitement désigne un ensemble de classes qui fonctionnent avec la même logique algorithmique et
+certaines méthodes en commun mais qui se dissocient par leurs spécificités. La classe Traitement seule ne
+représente pas d'intérêt pour être instanciée dans le traitement des données que l'on souhaite faire car
+elle ne correspond à aucune tâche spécifique mais simplement à un comportement général entre toutes ses
+classes dérivées.
 
 
 ## Pour le traitement Normaliseur, quels autres traitements avez-vous utilisés et comment ?

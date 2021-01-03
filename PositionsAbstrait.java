@@ -1,5 +1,3 @@
-//import java.util.*;
-
 /**
   * PositionsAbstrait spécifie un traitement qui mémorise
   * toutes les positions traitées pour ensuite y accéder
