@@ -10,22 +10,22 @@ public class Positions extends PositionsAbstrait {
   private List<Position> positions = new ArrayList<>();
 
 	@Override
-	public int nombre() {
+	public final int nombre() {
     return this.positions.size();
   }
 
 	@Override
-	public Position position(int indice) {
+	public final Position position(int indice) {
     return this.positions.get(indice);
   }
 
   @Override
-	public int frequence(Position position) {
+	public final int frequence(Position position) {
     return Collections.frequency(this.positions, position);
   }
 
   @Override
-  public void traiter(Position position, double valeur) {
+  public final void traiter(Position position, double valeur) {
     Collections.addAll(this.positions, position);
     super.traiter(position, valeur);
   }
