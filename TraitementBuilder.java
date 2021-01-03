@@ -38,7 +38,7 @@ public class TraitementBuilder {
 			return in.next();
 		}
 		// Type non identifié -> erreur
-		System.out.println(in.next());
+		System.out.println("erreur: Type non identifié \"" + in.next() + "\"");
 		return null;
 	}
 
@@ -64,12 +64,10 @@ public class TraitementBuilder {
 		List<Class<?>> formels = new ArrayList<>();
 		List<Object> effectifs = new ArrayList<>();
 
-		while (count > 0) {
-			System.out.println("analyserSignature " + count);
+		while (count-- > 0) {
 			type = analyserType(in.next());
 			formels.add(type);
 			effectifs.add(decoderEffectif(type, in));
-			--count;
 		}
 		return new Signature(formels.toArray(new Class<?>[0]), effectifs.toArray());
 	}
@@ -86,7 +84,6 @@ public class TraitementBuilder {
 		Class<?> formel = analyserType(in.next());
 		Signature sign = analyserSignature(in);
 
-		System.out.println("Construction " + formel);
 		return formel.getConstructor(sign.formels).newInstance(sign.effectifs);
 	}
 

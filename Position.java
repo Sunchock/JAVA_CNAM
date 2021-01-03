@@ -6,7 +6,6 @@ public class Position {
 	public Position(int x, int y) {
 		this.x = x;
 		this.y = y;
-		System.out.println("...appel à Position(" + x + "," + y + ")" + " --> " + this);
 	}
 
 	@Override public String toString() {
