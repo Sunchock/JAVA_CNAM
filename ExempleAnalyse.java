@@ -32,7 +32,6 @@ public class ExempleAnalyse {
 		somme.gererFinLot("manuelles");
 
 		// Exploiter les résultats
-		System.out.println(somme.somme());
 		System.out.println("Positions.frequence(new Position(1,2)) = " + positions.frequence(new Position(1, 2)));
 	}
 
@@ -61,8 +60,8 @@ public class ExempleAnalyse {
 	}
 
 	public static void main(String[] args) throws java.io.FileNotFoundException {
-		exemple1();
-		exemple2("Somme 0 1 Positions 0 0");
+		//exemple1(); OK
+		//exemple2("Somme 0 1 Positions 0 0"); OK
 
 		String calculs = "Positions 0 1 Max 0 1 Somme 0 1 SommeParPosition 0";
 		String generateur = "GenerateurXML 1 java.lang.String NOM--genere.xml";
