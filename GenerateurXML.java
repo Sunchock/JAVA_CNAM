@@ -22,7 +22,7 @@ public class GenerateurXML extends Traitement {
 		try {
 			Element root = new Element("root");
 			Document doc = new Document(root);
-			XMLOutputter xmlOutput = new XMLOutputter();
+			XMLOutputter xmlOutput = new XMLOutputter(Format.getPrettyFormat());
 
 			xmlOutput.output(doc, new FileOutputStream(new File(this.filename)));
 			System.out.println("Wrote to file" + this.filename);
