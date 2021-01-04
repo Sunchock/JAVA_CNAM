@@ -18,4 +18,10 @@ public class Position {
 			return (this.x == ((Position) obj).x && this.y == ((Position) obj).y);
 		return super.equals(obj);
 	}
+
+	@Override
+	public int hashCode() {
+		// TODO Auto-generated method stub
+		return super.hashCode();
+	}
 }
