@@ -25,7 +25,6 @@ public class GenerateurXML extends Traitement {
 			XMLOutputter xmlOutput = new XMLOutputter(Format.getPrettyFormat());
 
 			xmlOutput.output(doc, new FileOutputStream(new File(this.filename)));
-			System.out.println("Wrote to file" + this.filename);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
