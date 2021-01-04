@@ -1,6 +1,8 @@
 import java.io.File;
+import java.io.FileOutputStream;
 
-import org.jdom2.output.XMLOutputter;
+import org.jdom2.*;
+import org.jdom2.output.*;
 
 /**
  * GenerateurXML écrit dans un fichier, à charque fin de lot, toutes
@@ -17,12 +19,16 @@ public class GenerateurXML extends Traitement {
 
 	@Override
 	public final void gererFinLotLocal(String nomLot) {
-		XMLOutputter xmlOutput = new XMLOutputter();
-		File file = new File(nomLot);
+		try {
+			Element root = new Element("root");
+			Document doc = new Document(root);
+			XMLOutputter xmlOutput = new XMLOutputter();
 
-		/* Ecrire les données */
-		//Element e = new Element();
-		//DocumentType.
+			xmlOutput.output(doc, new FileOutputStream(new File(this.filename)));
+			System.out.println("Wrote to file" + this.filename);
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
 	}
 
 	@Override
