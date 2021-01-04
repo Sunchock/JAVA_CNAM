@@ -6,8 +6,8 @@ import java.util.Locale;
   * @author	Xavier Crégut <Prenom.Nom@enseeiht.fr>
   */
 public class Normaliseur extends Traitement {
-  double debut;
-  double fin;
+  private double debut;
+  private double fin;
 
   public Normaliseur(double x, double y) {
     this.debut = x;
@@ -23,8 +23,8 @@ public class Normaliseur extends Traitement {
 	public final void traiter(Position position, double valeur) {
     double a, b;
 
-    a = (Math.max(this.debut, this.fin) / Math.min(this.debut, this.fin)) / (this.debut - this.fin);
+    a = (Math.max(this.debut, this.fin) - Math.min(this.debut, this.fin)) / (this.fin - this.debut);
     b = this.debut - a * Math.min(this.debut, this.fin);
-		super.traiter(position, a * valeur + b);
-	}
+    super.traiter(position, a * valeur + b);
+  }
 }

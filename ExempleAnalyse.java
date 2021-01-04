@@ -74,8 +74,8 @@ public class ExempleAnalyse {
 				+ " " + generateur.replaceAll("NOM", "normalisees") + " 0"
 				+ " " + calculs + " 0";
 
-		exemple2(calculs + " 0");
-		//exemple2(traitement1);
+		//exemple2(calculs + " 0");
+		exemple2(traitement1);
 	}
 
 }
