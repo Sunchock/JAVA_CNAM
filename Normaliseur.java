@@ -6,16 +6,25 @@ import java.util.Locale;
   * @author	Xavier Crégut <Prenom.Nom@enseeiht.fr>
   */
 public class Normaliseur extends Traitement {
-  double x;
-  double y;
+  double debut;
+  double fin;
 
   public Normaliseur(double x, double y) {
-    this.x = x;
-    this.y = y;
+    this.debut = x;
+    this.fin = y;
   }
   
   @Override
-	protected String toStringComplement() {
-    return String.format(Locale.US, "début=%.1f, fin=%.1f", this.x, this.y);
+	protected final String toStringComplement() {
+    return String.format(Locale.US, "début=%.1f, fin=%.1f", this.debut, this.fin);
+  }
+  
+  @Override
+	public final void traiter(Position position, double valeur) {
+    double a, b;
+
+    a = (Math.max(this.debut, this.fin) / Math.min(this.debut, this.fin)) / (this.debut - this.fin);
+    b = this.debut - a * Math.min(this.debut, this.fin);
+		super.traiter(position, a * valeur + b);
 	}
 }
