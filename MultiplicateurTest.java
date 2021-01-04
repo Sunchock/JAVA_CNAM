@@ -20,10 +20,14 @@ public class MultiplicateurTest extends TraitementTestAbstrait {
 
 	@Override
 	public void setUp() {
-		super.setUp();
-		this.multiplicateur = nouveauTraitement();
-		this.dernier = new TraitementTestAbstrait.Dernier();
-		this.multiplicateur.ajouterSuivants(this.dernier);
+		try {
+			super.setUp();
+			this.multiplicateur = nouveauTraitement();
+			this.dernier = new TraitementTestAbstrait.Dernier();
+			this.multiplicateur.ajouterSuivants(this.dernier);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Test

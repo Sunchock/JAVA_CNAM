@@ -15,7 +15,7 @@ public abstract class TraitementTestAbstrait {
 	private Object setUpAppelee;
 	
 	@Before
-	public void setUp() {
+	public void setUp() throws CycleException {
 		this.dernier = new Dernier();
 		this.dernier2 = new Dernier();
 		this.unTraitement = nouveauTraitement();

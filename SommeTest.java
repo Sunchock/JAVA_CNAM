@@ -19,8 +19,12 @@ public class SommeTest extends TraitementTestAbstrait {
 
 	@Override
 	public void setUp() {
-		super.setUp();
-		this.somme = nouveauTraitement();
+		try {
+			super.setUp();
+			this.somme = nouveauTraitement();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Test

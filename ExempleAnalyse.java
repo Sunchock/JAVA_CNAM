@@ -19,7 +19,11 @@ public class ExempleAnalyse {
 		// Construire le traitement
 		SommeAbstrait somme = traitements.somme();
 		PositionsAbstrait positions = traitements.positions();
-		somme.ajouterSuivants(positions);
+		try {
+			somme.ajouterSuivants(positions);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 		System.out.println("Traitement : " + somme);
 
@@ -60,8 +64,8 @@ public class ExempleAnalyse {
 	}
 
 	public static void main(String[] args) throws java.io.FileNotFoundException {
-		//exemple1(); OK
-		//exemple2("Somme 0 1 Positions 0 0"); OK
+		exemple1();
+		exemple2("Somme 0 1 Positions 0 0");
 
 		String calculs = "Positions 0 1 Max 0 1 Somme 0 1 SommeParPosition 0";
 		String generateur = "GenerateurXML 1 java.lang.String NOM--genere.xml";
@@ -74,7 +78,7 @@ public class ExempleAnalyse {
 				+ " " + generateur.replaceAll("NOM", "normalisees") + " 0"
 				+ " " + calculs + " 0";
 
-		//exemple2(calculs + " 0");
+		exemple2(calculs + " 0");
 		exemple2(traitement1);
 	}
 

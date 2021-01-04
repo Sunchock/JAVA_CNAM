@@ -99,7 +99,8 @@ public class TraitementBuilder {
 	 * @param env l'environnement où enregistrer les nouveaux traitements
 	 */
 	Traitement analyserTraitement(Scanner in, Map<String, Traitement> env) throws ClassNotFoundException,
-		InvocationTargetException, IllegalAccessException, NoSuchMethodException, InstantiationException
+		InvocationTargetException, IllegalAccessException, NoSuchMethodException, InstantiationException,
+		CycleException
 	{
 		int nbNextTraits = 0;
 		Traitement result = (Traitement) analyserCreation(in);

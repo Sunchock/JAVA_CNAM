@@ -14,7 +14,11 @@ abstract public class Traitement {
 	/** Ajouter des traitements à la suite de celui-ci.
 	 * @param suivants les traitements à ajouter
 	 */
-	final public Traitement ajouterSuivants(Traitement... suivants) {
+	final public Traitement ajouterSuivants(Traitement... suivants) throws CycleException {
+		for (Traitement s : suivants) {
+			if (this.suivants.contains(s))
+				throw new CycleException("Cycle infini dans la déclaration des traitements");
+		}
 		Collections.addAll(this.suivants, suivants);
 		return this;
 	}
