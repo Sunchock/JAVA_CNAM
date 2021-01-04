@@ -15,5 +15,12 @@ public class SupprimerPlusPetit extends Traitement {
   @Override
 	protected String toStringComplement() {
     return String.format(Locale.US, "< %.1f", value);
+  }
+  
+  @Override
+	public final void traiter(Position position, double valeur) {
+		if (valeur >= this.value) {
+			super.traiter(position, valeur);
+		}
 	}
 }

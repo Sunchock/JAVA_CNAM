@@ -16,7 +16,7 @@ public class Max extends Traitement {
 	@Override
 	public final void traiter(Position position, double valeur) {
 		if (valeur > this.max_value) {
-		this.max_value = valeur;
+			this.max_value = valeur;
 		}
 		super.traiter(position, valeur);
 	}
