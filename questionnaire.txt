@@ -56,48 +56,73 @@ classes dérivées.
 
 ## Pour le traitement Normaliseur, quels autres traitements avez-vous utilisés et comment ?
 
-...
+Pour la classe Normaliseur, je n'ai pas utilisé d'autres traitements. J'ai simplement appliqué le calcul d'une
+fonction affine en me basant sur les valeurs de début et fin fournit lors de la construction de la classe.
+Il ne me pas sembler nécessaire d'utiliser d'autres Traitements, une erreur de compréhension du sujet de ma
+part probablement.
 
 
 ## Quelles modifications avez-vous été obligés de faire sur la classe Position ?
 
-...
+Pour la classe Position nous sommes obligés de modifier sa méthodes "equals" utilisée par Java pour faire des
+comparaisons entre les Objets. En effet, une position contient deux attributs et nous souhaitons indiquer au système
+que lorsque l'on compare deux Objets Position entre eux, on souhaite le faire en comparant leurs abscisses et ordonnées
+respectives.
 
 
 
 # Remarques sur Swing
 
-...
+Je n'ai pas eu assez de temps pour l'utiliser.
 
 
 # Remarques sur l'Introspection
 
-...
+J'ai mis un peu de temps à bien comprendre le principe de fonctionnement et ses subtilités. La syntaxe choisie est
+volontairement restée simple pour être accessible. Si j'avais dû la concevoir, j'aurai probablement fait quelque
+chose de similaire. Préciser le nombre de traitements suivants permet de construire l'arborescence des traitements
+assez simplement puis la définition des paramètres également est assez intuitive
 
 
 # Remarques sur XML
 
 ## Lecture d'un document XML
 
-...
+Pas eu assez de temps
 
 
 ## Production d'un document XML
 
-...
+Pas eu assez de temps
 
 
 # Principaux choix faits
 
-...
+Etant donné mon temps limité, j'ai choisi de me concentrer sur la partie fonctionnelle des Traitements
+ainsi que les tests fournis avec le projet. J'ai essayé d'être le plus fidèle possible au sujet et fonctions
+proposées sans ajouter d'attributs ou de méthodes non définies dans le sujet.
 
 
 # Critiques de l'architecture proposée et améliorations possibles
 
-...
+L'architecture proposée est déjà un bel exemple de l'utilisation d'héritage entre classes Java. Peut-être que certaines
+classes peuvent avoir un comportement similaire qui mériterait d'être définit dans une classe abstraite.
+Aussi certaines classes de Traitements sont peut-être inutiles en tant que telles et ne nécessitent par d'être instanciées
+et auraient pu être implémentées via une simple méthode dans la méthode "traiter" de la classe Traiement.
+Par exemple pour SupprimerPlusGrand et SupprimerPlusPetit, un simple 'if' dans la classe traiter et un attribut dans Traiement
+afin de sauvegarder la valeur permettrait d'utiliser moins de ressources système lors de l'executions de très gros scripts.
+Cela permettrait une certaine optimisation mais également de penser différents l'architecture du projet et ne serait vraiment
+utile que dans le cas de manipulations d'une quantitée très élevée de Traitements différents.
 
 
 # Difficultés rencontrées
 
-...
+Une difficulté qui m'a bloqué pendant une journée entière (à mon grand regret quand j'en ai découvert la raison ...), les Locales !
+En effet lorsque j'utilisais la fonction nextDouble() du Scanner avec pour argument "12.5" par exemple, le scanner ne parvenait pas
+à déchiffrer le nombre décimal. Il m'a fallut un certain temps et de nombreux tests avant de comprendre que le problème ne venait pas
+de mon algorithme mais plutôt de mon utilisation du Scanner. Pour être précis, la classe Scanner utilise par défaut sur mon ordinateur
+une Locale Française qui définit les nombres décimaux avec des virgules et non des points ! Ce qui explique pourquoi ma classe Scanner
+ne parvenait pas à déchiffrer les doubles. J'ai donc rajouté une vérification dans ma méthode "décoderEffectif" pour utiliser,
+quoiqu'il arrive la locale US avec le scanner afin d'être certain d'être conforme avec les nombres décimaux à points utilisés dans 
+le sujet.
 
