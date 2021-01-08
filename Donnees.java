@@ -6,21 +6,23 @@ import java.util.*;
   * @author	Xavier Crégut <Prenom.Nom@enseeiht.fr>
   */
 public class Donnees extends Traitement {
+  /* classe Donnée pour stocker les informations */
   private class Donnee {
-    private int x;
-    private int y;
+    private Position position;
     private double valeur;
 
-    public Donnee(int x, int y, double valeur) {
-      this.x = x;
-      this.y = y;
+    public Donnee(Position position, double valeur) {
+      this.position = position;
       this.valeur = valeur;
     }
   }
 
-  List<Donnee> list = new ArrayList<Donnee>();
+  List<Donnee> list = new ArrayList<>();
 
   public Donnees() {
+  }
 
+  public void ajouterDonnee(Position position, double valeur) {
+    this.list.add(new Donnee(position, valeur));
   }
 }

@@ -58,7 +58,7 @@ public class ExempleAnalyse {
 		main.gererFinLot("manuelles");
 
 		// Construire l'analyseur
-		//Analyseur analyseur = new Analyseur(main);
+		Analyseur analyseur = new Analyseur(main);
 
 		// Traiter les autres sources de données : "donnees.txt", etc.
 	}
