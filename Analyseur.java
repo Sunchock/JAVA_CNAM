@@ -1,4 +1,5 @@
 import java.io.*;
+import java.nio.file.Paths;
 import java.util.*;
 import static java.util.AbstractMap.SimpleImmutableEntry;
 
@@ -29,7 +30,7 @@ public class Analyseur {
 	}
 
 	/* x y id(ignoré) valeur */
-	private void chargerFichierType1(Scanner sc) {
+	private void chargerFichierType1(Scanner sc, Donnees donnees) {
 		Position p = new Position(sc.nextInt(), sc.nextInt());
 		double valeur;
 
@@ -37,11 +38,11 @@ public class Analyseur {
 		sc.next();
 		valeur = sc.nextDouble();
 		// Enregistrement
-		this.donnees.ajouterDonnee(p, valeur);
+		donnees.ajouterDonnee(p, valeur);
 	}
 
 	/* id(ignoré) x y texte(ignoré) valeur texte[0](ignoré) */
-	private void chargerFichierType2(Scanner sc) {
+	private void chargerFichierType2(Scanner sc, Donnees donnees) {
 		// skip id
 		sc.next();
 
@@ -52,7 +53,7 @@ public class Analyseur {
 		sc.next();
 		valeur = sc.nextDouble();
 		// Enregistrement
-		this.donnees.ajouterDonnee(p, valeur);
+		donnees.ajouterDonnee(p, valeur);
 	}
 
 	public void chargerFichier(String source) throws FileNotFoundException {
@@ -60,18 +61,24 @@ public class Analyseur {
 
 		try {
 			Scanner sc = new Scanner(new File(source)).useLocale(Locale.US);
+			Donnees donnees = new Donnees(Paths.get(source).getFileName().toString());
 
 			switch (this.typeFichier) {
 				case TXT_1:
-					this.chargerFichierType1(sc);
+					this.chargerFichierType1(sc, donnees);
 					break;
 				case TXT_2:
-					this.chargerFichierType2(sc);
+					this.chargerFichierType2(sc, donnees);
 					break;
 				default:
 					throw new Exception("Format du fichier non supporté");
 			}
 			sc.close();
+			if (this.donnees == null) {
+				this.donnees = donnees;
+			} else {
+				this.donnees.ajouterSuivants(donnees);
+			}
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}

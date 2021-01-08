@@ -58,9 +58,9 @@ public class ExempleAnalyse {
 		main.gererFinLot("manuelles");
 	}
 
-	public static void exemple3(String traitements) throws FileNotFoundException {
+	public static void exemple3(String traitements, String cheminFichier) throws FileNotFoundException {
 		System.out.println();
-		System.out.println("=== exemple2(" + traitements + ") ===");
+		System.out.println("=== exemple3(" + traitements + ") ===");
 
 		// Construire les traitements
 		TraitementBuilder builder = new TraitementBuilder();
@@ -80,7 +80,7 @@ public class ExempleAnalyse {
 		Analyseur analyseur = new Analyseur(main);
 
 		// Traiter les autres sources de données : "donnees.txt", etc.
-		analyseur.chargerFichier("donnees2-f2.txt");
+		analyseur.chargerFichier(cheminFichier);
 	}
 
 	public static void main(String[] args) throws java.io.FileNotFoundException {
@@ -101,7 +101,7 @@ public class ExempleAnalyse {
 		/*exemple2(calculs + " 0");
 		exemple2(traitement1);*/
 
-		exemple3(traitement1);
+		exemple3(traitement1, "donnees.txt");
 	}
 
 }

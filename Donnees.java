@@ -21,9 +21,15 @@ public class Donnees extends Traitement {
     }
   }
 
+  String nomLot;
   List<Donnee> list = new ArrayList<>();
 
   public Donnees() {
+    this.nomLot = "manuelles";
+  }
+
+  public Donnees(String nomLot) {
+    this.nomLot = nomLot;
   }
 
   public void ajouterDonnee(Position position, double valeur) {
