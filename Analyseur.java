@@ -1,6 +1,5 @@
 import java.io.*;
 import java.util.*;
-import java.util.IllegalFormatException;
 import static java.util.AbstractMap.SimpleImmutableEntry;
 
 /** Réaliser un traitement sur les données d'une source. */
@@ -20,7 +19,7 @@ public class Analyseur {
 		this.typeFichier = TypeFichier.NULL;
 	}
 
-	private TypeFichier detecterTypeFichier(String source) throws IllegalFormatException {
+	private TypeFichier detecterTypeFichier(String source) {
 		if (source.endsWith("-f2.txt") || source.equals("donnees-erreur.txt")) {
 			return TypeFichier.TXT_2;
 		} else if (source.endsWith(".txt")) {
