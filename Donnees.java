@@ -7,18 +7,12 @@ import static java.util.AbstractMap.SimpleImmutableEntry;
   * @author	Xavier Crégut <Prenom.Nom@enseeiht.fr>
   */
 public class Donnees extends Traitement {
-  String nomLot;
-  List<SimpleImmutableEntry<Position, Double>> list = new ArrayList<>();
+  public List<SimpleImmutableEntry<Position, Double>> list = new ArrayList<>();
 
   public Donnees() {
-    this.nomLot = "manuelles";
   }
 
-  public Donnees(String nomLot) {
-    this.nomLot = nomLot;
-  }
-
-  public void ajouterDonnee(Position position, double valeur) {
+  public void ajouter(Position position, double valeur) {
     this.list.add(new SimpleImmutableEntry<>(position, valeur));
   }
 }
