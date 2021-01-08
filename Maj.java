@@ -6,6 +6,7 @@
  */
 public class Maj extends Traitement {
 
-	// TODO à faire...
+	public Maj() {
+	}
 
 }

@@ -15,6 +15,10 @@ public class Donnees extends Traitement {
       this.position = position;
       this.valeur = valeur;
     }
+
+    @Override public String toString() {
+      return super.toString() + "(" + this.position.x + "," + this.position.y + ") " + this.valeur;
+    }
   }
 
   List<Donnee> list = new ArrayList<>();
