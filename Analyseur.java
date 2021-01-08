@@ -1,11 +1,10 @@
-//import java.io.*;
 import java.util.*;
 import static java.util.AbstractMap.SimpleImmutableEntry;
 
 /** Réaliser un traitement sur les données d'une source. */
 public class Analyseur {
-	private Traitement traitement;
-
+	private Traitement traitement; 
+ 
 	public Analyseur(Traitement traitement) {
 		Objects.requireNonNull(traitement);
 
