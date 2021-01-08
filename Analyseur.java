@@ -74,7 +74,7 @@ public class Analyseur {
 					throw new Exception("Format du fichier non supporté");
 			}
 			sc.close();
-			this.donnees.put(Paths.get(source).getFileName().getParent().toString(), donnees);
+			this.donnees.put(Paths.get(source).getFileName().toString().substring(0, source.lastIndexOf('.')), donnees);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
