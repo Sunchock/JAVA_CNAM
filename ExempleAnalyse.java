@@ -80,7 +80,7 @@ public class ExempleAnalyse {
 		Analyseur analyseur = new Analyseur(main);
 
 		// Traiter les autres sources de données : "donnees.txt", etc.
-		analyseur.chargerFichier("donnees.txt");
+		analyseur.chargerFichier("donnees2-f2.txt");
 	}
 
 	public static void main(String[] args) throws java.io.FileNotFoundException {
