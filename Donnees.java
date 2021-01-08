@@ -1,4 +1,5 @@
 import java.util.*;
+import static java.util.AbstractMap.SimpleImmutableEntry;
 
 /**
   * Donnees enregistre toutes les données reçues, quelque soit le lot.
@@ -6,23 +7,8 @@ import java.util.*;
   * @author	Xavier Crégut <Prenom.Nom@enseeiht.fr>
   */
 public class Donnees extends Traitement {
-  /* classe Donnée pour stocker les informations */
-  private class Donnee {
-    private Position position;
-    private double valeur;
-
-    public Donnee(Position position, double valeur) {
-      this.position = position;
-      this.valeur = valeur;
-    }
-
-    @Override public String toString() {
-      return super.toString() + "(" + this.position.x + "," + this.position.y + ") " + this.valeur;
-    }
-  }
-
   String nomLot;
-  List<Donnee> list = new ArrayList<>();
+  List<SimpleImmutableEntry<Position, Double>> list = new ArrayList<>();
 
   public Donnees() {
     this.nomLot = "manuelles";
@@ -33,6 +19,6 @@ public class Donnees extends Traitement {
   }
 
   public void ajouterDonnee(Position position, double valeur) {
-    this.list.add(new Donnee(position, valeur));
+    this.list.add(new SimpleImmutableEntry<>(position, valeur));
   }
 }
