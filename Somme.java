@@ -21,6 +21,6 @@ public class Somme extends SommeAbstrait {
 
 	@Override
 	public final double somme() {
-		return this.result;
+		return (double) Math.round(this.result * 10d) / 10d;
 	}
 }

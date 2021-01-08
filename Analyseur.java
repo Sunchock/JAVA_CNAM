@@ -63,15 +63,17 @@ public class Analyseur {
 			Scanner sc = new Scanner(new File(source)).useLocale(Locale.US);
 			Donnees donnees = new Donnees();
 
-			switch (this.typeFichier) {
-				case TXT_1:
-					this.chargerFichierType1(sc, donnees);
-					break;
-				case TXT_2:
-					this.chargerFichierType2(sc, donnees);
-					break;
-				default:
-					throw new Exception("Format du fichier non supporté");
+			while (sc.hasNext()) {
+				switch (this.typeFichier) {
+					case TXT_1:
+						this.chargerFichierType1(sc, donnees);
+						break;
+					case TXT_2:
+						this.chargerFichierType2(sc, donnees);
+						break;
+					default:
+						throw new Exception("Format du fichier non supporté");
+				}
 			}
 			sc.close();
 			this.donnees.put(Paths.get(source).getFileName().toString().substring(0, source.lastIndexOf('.')), donnees);

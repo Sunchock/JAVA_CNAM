@@ -69,11 +69,11 @@ public class ExempleAnalyse {
 
 
 		// Traiter des données manuelles
-		main.gererDebutLot("manuelles");
+		/*main.gererDebutLot("manuelles");
 		main.traiter(new Position(1, 1), 5.0);
 		main.traiter(new Position(1, 2), 2.0);
 		main.traiter(new Position(1, 1), -1.0);
-		main.gererFinLot("manuelles");
+		main.gererFinLot("manuelles");*/
 
 		// Construire l'analyseur
 		Analyseur analyseur = new Analyseur(main);
