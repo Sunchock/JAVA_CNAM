@@ -56,11 +56,31 @@ public class ExempleAnalyse {
 		main.traiter(new Position(1, 2), 2.0);
 		main.traiter(new Position(1, 1), -1.0);
 		main.gererFinLot("manuelles");
+	}
+
+	public static void exemple3(String traitements) throws FileNotFoundException {
+		System.out.println();
+		System.out.println("=== exemple2(" + traitements + ") ===");
+
+		// Construire les traitements
+		TraitementBuilder builder = new TraitementBuilder();
+		Traitement main = builder.traitement(new java.util.Scanner(traitements).useLocale(Locale.US), null);
+
+		System.out.println("Traitement : " + main);
+
+
+		// Traiter des données manuelles
+		main.gererDebutLot("manuelles");
+		main.traiter(new Position(1, 1), 5.0);
+		main.traiter(new Position(1, 2), 2.0);
+		main.traiter(new Position(1, 1), -1.0);
+		main.gererFinLot("manuelles");
 
 		// Construire l'analyseur
 		Analyseur analyseur = new Analyseur(main);
 
 		// Traiter les autres sources de données : "donnees.txt", etc.
+		analyseur.chargerFichier("donnees.txt");
 	}
 
 	public static void main(String[] args) throws java.io.FileNotFoundException {
@@ -80,6 +100,8 @@ public class ExempleAnalyse {
 
 		exemple2(calculs + " 0");
 		exemple2(traitement1);
+
+		exemple3(traitement1);
 	}
 
 }

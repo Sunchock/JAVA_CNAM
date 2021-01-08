@@ -1,3 +1,4 @@
+import java.io.*;
 import java.util.*;
 import static java.util.AbstractMap.SimpleImmutableEntry;
 
@@ -13,8 +14,25 @@ public class Analyseur {
 		this.traitement = traitement;
 	}
 
-	public void chargerFichier(String source) {
+	public void chargerFichier(String source) throws FileNotFoundException {
+		File file = new File(source);
 
+		try {
+			Scanner sc = new Scanner(file);
+
+			int i = 0;
+			while (sc.hasNext()) {
+				if (++i >= 4) {
+					i = 0;
+					System.out.println("->" + sc.next());
+				} else {
+					System.out.print("->" + sc.next());
+				}
+			}
+			sc.close();
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
 	}
 
 	/** Charger l'analyseur avec les données de la source. */
