@@ -29,26 +29,48 @@ public class Analyseur {
 		return TypeFichier.NULL;
 	}
 
+	/* x y id(ignoré) valeur */
+	private void chargerFichierType1(Scanner sc) {
+		Position p = new Position(sc.nextInt(), sc.nextInt());
+		double valeur;
+
+		// skip id
+		sc.next();
+		valeur = sc.nextDouble();
+		// Enregistrement
+		this.donnees.ajouterDonnee(p, valeur);
+	}
+
+	/* id(ignoré) x y texte(ignoré) valeur texte[0](ignoré) */
+	private void chargerFichierType2(Scanner sc) {
+		// skip id
+		sc.next();
+
+		Position p = new Position(sc.nextInt(), sc.nextInt());
+		double valeur;
+
+		// skip text
+		sc.next();
+		valeur = sc.nextDouble();
+		// Enregistrement
+		this.donnees.ajouterDonnee(p, valeur);
+	}
+
 	public void chargerFichier(String source) throws FileNotFoundException {
 		this.typeFichier = this.detecterTypeFichier(source);
 
 		try {
-			Scanner sc = new Scanner(new File(source));
+			Scanner sc = new Scanner(new File(source)).useLocale(Locale.US);
 
-			if (this.typeFichier == TypeFichier.NULL) {
-				throw new Exception("Format du fichier non supporté");
-			}
-			int i = 0;
-			while (sc.hasNext()) {
-				if (++i >= 4 && this.typeFichier == TypeFichier.TXT_1) {
-					i = 0;
-					System.out.println("->" + sc.next());
-				} else if (i >= 6 && this.typeFichier == TypeFichier.TXT_2) {
-					i = 0;
-					System.out.println("->" + sc.next());
-				} else {
-					System.out.print("->" + sc.next());
-				}
+			switch (this.typeFichier) {
+				case TXT_1:
+					this.chargerFichierType1(sc);
+					break;
+				case TXT_2:
+					this.chargerFichierType2(sc);
+					break;
+				default:
+					throw new Exception("Format du fichier non supporté");
 			}
 			sc.close();
 		} catch (Exception ex) {
